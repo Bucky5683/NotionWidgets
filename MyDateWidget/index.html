@@ -3,6 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>우리의 데이트 지도</title>
+        <script>
+            var NAVER_MAP_ID = '%NAVERMAPID%';
+            var NAVER_MAP_KEY = '%NAVERMAPKEY%';
+        </script>
         <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8wp871cmby"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" href="MyDateWidgetStyleSheet.css"/>
@@ -11,16 +15,21 @@
         <div id="map"></div>
         <button id="add-button" onclick="showPopup()">+</button>
         <div id="popup">
-            <input id="title" placeholder="제목" />
-            <input
-                id="address"
-                placeholder="주소 (예: 서울숲)"
-                onblur="lookupAddress()"
-            />
-            <input id="lat" placeholder="위도" readonly />
-            <input id="lng" placeholder="경도" readonly />
-            <textarea id="desc" placeholder="설명"></textarea>
-            <button onclick="addMarkerAndClose()">추가</button>
+            <div class="popup-header">
+                <span>📍 장소 추가</span>
+                <button class="popup-close" onclick="closePopup()">✕</button>
+            </div>
+            <div class="popup-body">
+                <input type="text" id="title" placeholder="장소 이름" />
+                <div class="address-row">
+                    <input type="text" id="address" placeholder="주소 검색 (예: 서울숲)" />
+                    <button class="btn-search" onclick="lookupAddress()">검색</button>
+                </div>
+                <textarea id="desc" placeholder="메모 (선택사항)"></textarea>
+                <input type="hidden" id="lat" />
+                <input type="hidden" id="lng" />
+                <button class="btn-add" onclick="addMarkerAndClose()">추가하기</button>
+            </div>
         </div>
         <script src="MyDateWidgetScript.js"></script>
     </body>

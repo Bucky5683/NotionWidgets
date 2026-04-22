@@ -5,39 +5,145 @@ body,
   padding: 0;
   height: 100%;
 }
+
 #add-button {
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 10;
   background-color: #ff4081;
   color: white;
   border: none;
-  padding: 10px 15px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 28px;
+  line-height: 1;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
 }
+
+#add-button:hover {
+  background-color: #e03070;
+}
+
 #popup {
   position: absolute;
-  top: 70px;
+  top: 80px;
   right: 20px;
+  z-index: 10;
   background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: none;
+  width: 280px;
+  font-family: 'Noto Sans KR', sans-serif;
+  overflow: hidden;
 }
-#popup input,
-#popup textarea {
-  display: block;
-  margin-bottom: 10px;
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #aaa;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.popup-close:hover {
+  color: #555;
+}
+
+.popup-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-body input[type="text"],
+.popup-body textarea {
   width: 100%;
-  padding: 5px;
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
 }
-#popup button {
-  background-color: #4caf50;
+
+.popup-body input[type="text"]:focus,
+.popup-body textarea:focus {
+  border-color: #ff4081;
+}
+
+.popup-body textarea {
+  resize: none;
+  height: 70px;
+}
+
+.address-row {
+  display: flex;
+  gap: 6px;
+}
+
+.address-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-search {
+  background: #5b8dee;
   color: white;
   border: none;
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 0.85rem;
+  font-family: inherit;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btn-search:hover {
+  background: #4a7cdb;
+}
+
+.btn-search:disabled {
+  background: #aaa;
+  cursor: default;
+}
+
+.btn-add {
+  background: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-add:hover {
+  background: #e03070;
 }

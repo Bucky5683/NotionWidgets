@@ -3,8 +3,9 @@ name: Update and Deploy Date Map
 on:
   push:
     paths:
-      - 'MyDateWidget/markers.json'
       - 'MyDateWidget/index.html'
+      - 'MyDateWidget/MyDateWidgetScript.js'
+      - 'MyDateWidget/MyDateWidgetStyleSheet.css'
       - '.github/workflows/naverMap.yml'
 
 jobs:
@@ -20,17 +21,6 @@ jobs:
         run: |
           sed -i 's/%NAVERMAPID%/${{ secrets.NAVERMAPID }}/g' MyDateWidget/index.html
           sed -i 's/%NAVERMAPKEY%/${{ secrets.NAVERMAPKEY }}/g' MyDateWidget/index.html
-
-      - name: Configure Git user
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-
-      - name: Commit replaced HTML
-        run: |
-          git add MyDateWidget/index.html
-          git commit -m "Apply NaverMap secrets to HTML" || echo "No changes to commit"
-          git push
 
       - name: Deploy MyDateWidget folder to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
