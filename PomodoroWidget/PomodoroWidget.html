@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8" />
+    <title>Pomodoro Widget</title>
+    <link rel="stylesheet" href="PomodoroWidgetStyleSheet.css"/>
+</head>
+<body>
+    <div class="pomodoro-container" id="container">
+        <div class="mode-label" id="modeLabel">FOCUS</div>
+        <div class="timer" id="timer">25:00</div>
+        <div class="sessions" id="sessions">
+            <span class="dot" id="dot0">●</span>
+            <span class="dot" id="dot1">◌</span>
+            <span class="dot" id="dot2">◌</span>
+            <span class="dot" id="dot3">◌</span>
+        </div>
+        <div class="controls">
+            <button class="btn-start" id="btnStart" onclick="toggleStartPause()">Start</button>
+            <button class="btn-reset" id="btnReset" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <script src="PomodoroWidgetScript.js"></script>
+</body>
+</html>
